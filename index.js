@@ -60,3 +60,17 @@ function isTriangle(a,b,c)
   return sum - max > max;
 }
 
+// 8 kyu - Even or Odd triangles
+
+// Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
+
+//Solution is:
+
+function even_or_odd(number) {
+    if (number % 2 == 0){
+      return "Even";
+    }
+    else {
+      return "Odd"
+    }
+}
