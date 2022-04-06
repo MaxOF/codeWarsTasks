@@ -274,3 +274,32 @@ function greet (name, owner) {
         return 'Hello guest'
     }
 }
+
+// 7 kyu
+// Round to nearest 0 or 5
+//
+// Given an array of numbers, return an array, with each member of input array rounded to a nearest number, divisible by 5.
+//
+// For example:
+//
+//     roundToFive([34.5, 56.2, 11, 13]);
+// should return
+//
+// [35, 55, 10, 15]
+
+// return the list with all numbers rounded to nearest 0 or 5
+function roundToFive(numbers){
+
+    return numbers.map(m => (m % 5 >= 2.5) ? m += 5 - m % 5 : m -= m % 5)
+
+//   for(let i = 0; i < numbers.length; i++){
+//     let remain = numbers[i] % 5
+//     if(remain >= 2.5){
+//       numbers[i] = numbers[i] + (5 - remain)
+//     } else {
+//       numbers[i] = numbers[i] - remain
+//     }
+//   }
+
+//   return numbers
+}
