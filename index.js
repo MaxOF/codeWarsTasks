@@ -106,3 +106,91 @@ function arraysSimilar(arr1, arr2) {
 //   return true
 }
 
+//7 kyu
+// Sum ALL the arrays!
+//You are given an array of values.
+//
+// Sum every number value in the array, and any nested arrays (to any depth).
+//
+// Ignore all other types of values.
+
+//Solution is:
+
+function arraySum(arr) {
+
+    let splittedArr = arr.toString().split(',')
+
+    let sum = 0
+
+    for(let i = 0; i < splittedArr.length; i++){
+        sum += Number.isNaN(+splittedArr[i]) ? 0 : +splittedArr[i]
+    }
+    return sum
+}
+
+// 8 kyu
+// Remove duplicates from list
+//Define a function that removes duplicates from an array of numbers and returns it as a result.
+//
+// The order of the sequence has to stay the same.
+
+function distinct(a) {
+
+//   let item = {}
+//   let result = []
+
+//   for(let i = 0; i < a.length; i++) {
+//     if(!item[a[i]]) {
+//       result.push(a[i])
+//       item[a[i]] = true
+//     }
+//   }
+//   return result;
+
+    return [...new Set(a)]
+}
+
+// 7 kyu
+// Write shortest function to calculate Average number of Array
+
+// Given an array of integers, calculate the Average of these numbers.
+//
+// Main challenge is to write shortest and compact function for it.
+//  For example: var a = [0, 1, 2];
+// avg(a) // output should be 1
+// Output of function will be also checked in tests, however most important is to write the shortest possible function (code length < 100). Input will always be valid.
+
+const avg = a => a.reduce((a, b) => a + b) / a.length
+
+
+// 5 kyu
+// Valid Parentheses
+//Write a function that takes a string of parentheses, and determines if the order of the parentheses is valid. The function should return true if the string is valid, and false if it's invalid.
+//
+// Examples
+// "()"              =>  true
+// ")(()))"          =>  false
+// "("               =>  false
+// "(())((()())())"  =>  true
+
+function validParentheses(parens) {
+    const open = ['(', '{', '[']
+    const close = [')', '}', ']']
+
+    let stack = []
+
+
+    for(let i = 0; i < parens.length; i++){
+        if(open.includes(parens[i])){
+            stack.push(parens[i])
+        } else {
+            if(close.indexOf(parens[i]) === open.indexOf(stack[stack.length - 1]) ){
+                stack.pop()
+            } else {
+                return false
+            }
+        }
+    }
+
+    return stack.length === 0;
+}
