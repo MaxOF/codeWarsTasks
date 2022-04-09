@@ -334,6 +334,14 @@ function roundToFive(numbers) {
 // console.log(isUnique('abcABC')) // -> true
 // console.log(isUnique('abcadef')) // -> false
 
+//### Плоский массив
+//
+// Напишите функцию, принимающая массив с вложенными массивами и распакуйте в результирующий плоский массов. В результате должны получить новый одномерный массив.
+//
+// **Input**: Array
+//
+// **Output**: Array
+
 // function flatten(array) {
 //     // if we know the depth of array:
 //     //return array.flat(3)
@@ -353,3 +361,33 @@ function roundToFive(numbers) {
 // }
 //
 // console.log(flatten([[1], [[2, 3]], [[[4]]]])) // -> [1, 2, 3, 4]
+
+// ### Удаление всех повторяющихся значений в строке
+//
+// Напишите функцию, которая принимает строку и возвращает новую, в которой все дублирующиеся символы будут удалены.
+//
+// **Input**: String
+//
+// **Output**: String
+
+// function removeDupes(str) {
+//     // return Array.from(new Set(str)).join('')
+//     //return [...new Set(str)].join('')
+//     const item = {}
+//     const res = []
+//
+//     for (let i = 0; i < str.length; i++) {
+//         if (!item[str[i]]) {
+//             item[str[i]] = true
+//             res.push(str[i])
+//         }
+//     }
+//
+//     return res.join('')
+// }
+//
+//
+// console.log(removeDupes('abcd')) // -> 'abcd'
+// console.log(removeDupes('aabbccdd')) // -> 'abcd'
+// console.log(removeDupes('abcddbca')) // -> 'abcd'
+// console.log(removeDupes('abababcdcdcd')) // -> 'abcd'
