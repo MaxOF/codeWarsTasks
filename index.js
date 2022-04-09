@@ -1,5 +1,4 @@
-
-// 6 kyu - Array.diff 
+// 6 kyu - Array.diff
 // Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
 // It should remove all values from list a, which are present in list b keeping their order
 // arrayDiff([1,2],[1]) == [2]
@@ -10,17 +9,17 @@
 
 function arrayDiff(a, b) {
     let result = [];
- 
-     for (let n of a) {
+
+    for (let n of a) {
         if (!b.includes(n)) {
-          result.push(n);
+            result.push(n);
         }
-     }
-     return result
- }
+    }
+    return result
+}
 
 
- // 8 kyu - Opposites Attract
+// 8 kyu - Opposites Attract
 
 // Timmy & Sarah think they are in love, but around where they live,
 // they will only know once they pick a flower each.
@@ -28,23 +27,21 @@ function arrayDiff(a, b) {
 // and the other has an odd number of petals it means they are in love.
 // Write a function that will take the number of petals of each flower and return true
 // if they are in love and false if they aren't.
- 
+
 //Solution is:
 
-function lovefunc(flower1, flower2){
-    if (flower1 % 2 == 0 && flower2 % 2 !==0){
-     return true;
+function lovefunc(flower1, flower2) {
+    if (flower1 % 2 == 0 && flower2 % 2 !== 0) {
+        return true;
+    } else if (flower2 % 2 == 0 && flower1 % 2 !== 0) {
+        return true;
+    } else {
+        return false;
     }
-    else if (flower2 % 2 == 0 && flower1 % 2 !==0){
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
+}
 
 
- // 7 kyu - Is this a triangle?
+// 7 kyu - Is this a triangle?
 
 // Implement a function that accepts 3 integer values a, b, c.
 // The function should return trueif a triangle can be built with the sides of given length and false in any other case.
@@ -52,12 +49,11 @@ function lovefunc(flower1, flower2){
 
 //Solution is:
 
-function isTriangle(a,b,c)
-{
-  let sides = [a, b, c];
-  let max = Math.max(...sides);
-  let sum = sides.reduce((a, b) => a + b, 0);
-  return sum - max > max;
+function isTriangle(a, b, c) {
+    let sides = [a, b, c];
+    let max = Math.max(...sides);
+    let sum = sides.reduce((a, b) => a + b, 0);
+    return sum - max > max;
 }
 
 // 8 kyu - Even or Odd triangles
@@ -67,11 +63,10 @@ function isTriangle(a,b,c)
 //Solution is:
 
 function even_or_odd(number) {
-    if (number % 2 == 0){
-      return "Even";
-    }
-    else {
-      return "Odd"
+    if (number % 2 == 0) {
+        return "Even";
+    } else {
+        return "Odd"
     }
 }
 
@@ -122,7 +117,7 @@ function arraySum(arr) {
 
     let sum = 0
 
-    for(let i = 0; i < splittedArr.length; i++){
+    for (let i = 0; i < splittedArr.length; i++) {
         sum += Number.isNaN(+splittedArr[i]) ? 0 : +splittedArr[i]
     }
     return sum
@@ -180,11 +175,11 @@ function validParentheses(parens) {
     let stack = []
 
 
-    for(let i = 0; i < parens.length; i++){
-        if(open.includes(parens[i])){
+    for (let i = 0; i < parens.length; i++) {
+        if (open.includes(parens[i])) {
             stack.push(parens[i])
         } else {
-            if(close.indexOf(parens[i]) === open.indexOf(stack[stack.length - 1]) ){
+            if (close.indexOf(parens[i]) === open.indexOf(stack[stack.length - 1])) {
                 stack.pop()
             } else {
                 return false
@@ -227,7 +222,7 @@ function invert(array) {
 
     let result = []
 
-    for(let i = 0; i < array.length; i++){
+    for (let i = 0; i < array.length; i++) {
         array[i] = array[i] * (-1)
         result = array
     }
@@ -251,7 +246,7 @@ function invert(array) {
 
 function hello(name = '') {
 
-    if(!name.trim()) return 'Hello, World!'
+    if (!name.trim()) return 'Hello, World!'
 
     return 'Hello, ' + name[0].toUpperCase() + name.slice(1).toLowerCase() + '!'
 }
@@ -267,7 +262,7 @@ function hello(name = '') {
 // name equals owner	'Hello boss'
 // otherwise	'Hello guest'
 
-function greet (name, owner) {
+function greet(name, owner) {
     if (name === owner) {
         return 'Hello boss'
     } else {
@@ -288,7 +283,7 @@ function greet (name, owner) {
 // [35, 55, 10, 15]
 
 // return the list with all numbers rounded to nearest 0 or 5
-function roundToFive(numbers){
+function roundToFive(numbers) {
 
     return numbers.map(m => (m % 5 >= 2.5) ? m += 5 - m % 5 : m -= m % 5)
 
@@ -303,3 +298,58 @@ function roundToFive(numbers){
 
 //   return numbers
 }
+
+//### Уникальность всех символов в строке
+//
+// Напишите функцию, которая определяет уникальны ли все символы в строке. Регистр должен учитываться: `‘a’` и `‘A’` разные символы.
+//
+// **Input**: String
+//
+// **Output**: Boolean
+
+//function isUnique(string) {
+// 	 // for (let i = 0; i < str.length; i++) {
+//   //   if (str.lastIndexOf(str[i]) !== i) {
+//   //     return false
+//   //   }
+//   // }
+//   // return true
+//   // const chars = new Set()
+//   //
+//   // for (let i = 0; i < str.length; i++) {
+//   //   const current = str[i]
+//   //
+//   //   if (chars.has(current)) {
+//   //     return false
+//   //   }
+//   //
+//   //   chars.add(current)
+//   // }
+//   // return true
+//     return new Set(str).size === str.length
+// }
+//
+// console.log(isUnique('abcdef')) // -> true
+// console.log(isUnique('1234567')) // -> true
+// console.log(isUnique('abcABC')) // -> true
+// console.log(isUnique('abcadef')) // -> false
+
+// function flatten(array) {
+//     // if we know the depth of array:
+//     //return array.flat(3)
+//     let res = []
+//
+//     for (let i = 0; i < array.length; i++) {
+//         if (Array.isArray(array[i])) {
+//             const depthFlat = flatten(array[i])
+//             for (let k = 0; k < depthFlat.length; k++) {
+//                 res.push(depthFlat[k])
+//             }
+//         } else {
+//             res.push(array[i])
+//         }
+//     }
+//     return res
+// }
+//
+// console.log(flatten([[1], [[2, 3]], [[[4]]]])) // -> [1, 2, 3, 4]
