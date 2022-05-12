@@ -391,3 +391,34 @@ function roundToFive(numbers) {
 // console.log(removeDupes('aabbccdd')) // -> 'abcd'
 // console.log(removeDupes('abcddbca')) // -> 'abcd'
 // console.log(removeDupes('abababcdcdcd')) // -> 'abcd'
+
+
+// Реализовать функцию superSum, которая принимает число в качестве аргумента, которое указывает на количество
+// слагаемых и что бы корректно работали следующие вызовы:
+
+//  superSum(0)
+//  superSum(3)(2, 5, 3)
+//  superSum(3)(2, 5) (3)
+//  superSum(3)(2, 5) (3, 9)
+function superSum(num) {
+    if (num <= 0) return 0;
+    if (num === 1) return (n) => n;
+    let _args = []
+
+    function helper (...args) {
+        _args = [...args, ...args]
+        if(_args.length >= num) {
+            _args.length = num;
+            return _args.reduce((acc, num) => acc + num)
+        } else {
+            return helper
+        }
+    }
+
+    return helper
+
+}
+
+console.log(superSum(3)(2, 5, 3))
+console.log(superSum(3)(2, 5) (3))
+console.log(superSum(3)(2, 5) (3, 9))
