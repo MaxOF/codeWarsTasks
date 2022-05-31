@@ -464,3 +464,11 @@ Function.prototype.customBind = function (ctx, ...args) {
         return _this.call(ctx, ...args, ...args2)
     }
 }
+
+//custom bind without methods of function
+Function.prototype.customBind = function (ctx, ...args) {
+    ctx.__bindFunc__ = this
+    return function(...args2) {
+        return ctx.__bindFunc__(...args, ...args2)
+    }
+}
