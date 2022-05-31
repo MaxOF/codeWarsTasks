@@ -422,3 +422,12 @@ function superSum(num) {
 console.log(superSum(3)(2, 5, 3))
 console.log(superSum(3)(2, 5) (3))
 console.log(superSum(3)(2, 5) (3, 9))
+
+//custom bind
+
+Function.prototype.customBind = function (ctx, ...args) {
+    const _this = this
+    return function(...args2) {
+        return _this.call(ctx, ...args, ...args2)
+    }
+}
